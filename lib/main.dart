@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
       'answers': ['White', 'black', 'Green', 'Blue']
     },
     {
-      'question': 'What is your favourite ANIMAL?',
+      'question': 'What is your favourite Animal?',
       'answers': ['Goose', 'Deer', 'lion', 'Tiger']
     },
     {
@@ -38,15 +38,20 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Color.fromARGB(255, 10, 10, 10),
         appBar: AppBar(
-          title: Text("QUIZ TIME"),
+          titleSpacing: 139,
+          title: Text(
+            "QUIZ TIME",
+            style: TextStyle(
+              color: Color.fromARGB(255, 255, 255, 255),
+            ),
+          ),
         ),
         body: Column(
           children: [
-              Question(questions[_questionIndex]["question"]),
-              ...(questions[_questionIndex]['answers'] as List).map((answer) {
-                return Answer(_answerQuestion,answer);
-              })
+            Question(questions[_questionIndex]["question"]),
+            ...(questions[_questionIndex]['answers'] as List).map((answer) => Answer(_answerQuestion, answer))
           ],
         ),
       ),
