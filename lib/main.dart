@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  var questions = [
+  final questions = const [
     {
       'question': 'What is your favourite color?',
       'answers': ['White', 'black', 'Green', 'Blue']
@@ -38,22 +38,45 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 10, 10, 10),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         appBar: AppBar(
-          titleSpacing: 139,
+          backgroundColor: Color.fromARGB(233, 30, 192, 30),
           title: Text(
             "QUIZ TIME",
+            textAlign: TextAlign.right,
             style: TextStyle(
-              color: Color.fromARGB(255, 255, 255, 255),
+              color: Color.fromARGB(255, 255, 254, 254),
             ),
           ),
         ),
-        body: Column(
-          children: [
-            Question(questions[_questionIndex]["question"]),
-            ...(questions[_questionIndex]['answers'] as List).map((answer) => Answer(_answerQuestion, answer))
-          ],
-        ),
+        body: _questionIndex < questions.length
+            ? Column(
+                children: [
+                  Question(questions[_questionIndex]["question"] as String),
+                  ...(questions[_questionIndex]['answers'] as List)
+                      .map((answer) => Answer(_answerQuestion, answer))
+                ],
+              )
+            : Center(
+                child: Text(
+                  "You did it!",
+                  style: TextStyle(
+                      fontSize: 18,
+                      height:
+                          2, //line height 200%, 1= 100%, were 0.9 = 90% of actual line height
+                      color: Colors.redAccent, //font color
+                      backgroundColor: Colors.black12, //background color
+                      letterSpacing: 5, //letter spacing
+                      decoration: TextDecoration.underline, //make underline
+                      decorationStyle:
+                          TextDecorationStyle.double, //double underline
+                      decorationColor:
+                          Colors.brown, //text decoration 'underline' color
+                      decorationThickness:
+                          1.5, //decoration 'underline' thickness
+                      fontStyle: FontStyle.italic),
+                ),
+              ),
       ),
     );
   }

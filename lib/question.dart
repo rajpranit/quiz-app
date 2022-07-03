@@ -14,7 +14,7 @@ class Question extends StatelessWidget {
       child: Text(
         questionText,
         style: TextStyle(
-          color: Color.fromARGB(197, 255, 255, 255),
+          color: Color.fromARGB(197, 180, 64, 165),
           fontSize: 20,
 
         ),

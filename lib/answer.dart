@@ -13,13 +13,13 @@ class Answer extends StatelessWidget {
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor:
-              MaterialStateProperty.all(Color.fromARGB(255, 245, 46, 11)),
+              MaterialStateProperty.all(Color.fromARGB(150, 0, 233, 241)),
           foregroundColor:
               MaterialStateProperty.all(Color.fromARGB(255, 255, 255, 255)),
           overlayColor:
-              MaterialStateProperty.all(Color.fromARGB(255, 0, 247, 0)),
+              MaterialStateProperty.all(Color.fromARGB(255, 55, 182, 55)),
           shadowColor:
-              MaterialStateProperty.all(Color.fromARGB(255, 42, 106, 158)),
+              MaterialStateProperty.all(Color.fromARGB(100, 42, 106, 158)),
           elevation: MaterialStateProperty.all(15),
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
@@ -28,7 +28,12 @@ class Answer extends StatelessWidget {
           ),
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        child: Text(answer , style: TextStyle(color: Color.fromARGB(160, 0, 1, 2)),),
+        child: Text(
+          answer,
+          style: TextStyle(
+            color: Color.fromARGB(255, 255, 255, 255),
+          ),
+        ),
         onPressed: selectHandler,
       ),
     ));
